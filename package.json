@@ -1,14 +1,15 @@
 {
-    "name": "proxy-backend",
-    "version": "1.0.0",
-    "description": "Proxy para OpenRouteService",
-    "main": "server.js",
-    "scripts": {
-      "start": "node server.js"
-    },
-    "dependencies": {
-      "express": "^4.18.2",
-      "node-fetch": "^2.6.7",
-      "cors": "^2.8.5"
-    }
+  "name": "google-directions-backend",
+  "version": "1.0.0",
+  "description": "Backend para obtener rutas de Google Directions API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^2.6.7",
+    "cors": "^2.8.5"
   }
+}
+
