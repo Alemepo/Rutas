@@ -5,21 +5,19 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const GOOGLE_API_KEY = "AIzaSyB20Q9jR-kc39RpOgTxTztGtj3jUOOv1H8"; // Tu clave de Google Maps
+const GOOGLE_API_KEY = "AIzaSyB20Q9jR-kc39RpOgTxTztGtj3jUOOv1H8";
 const GOOGLE_API_URL = "https://maps.googleapis.com/maps/api/directions/json";
 
 app.use(cors());
 
-// Ruta para obtener direcciones
 app.get("/directions", async (req, res) => {
-  const { start, end } = req.query;
+  const { origin, destination } = req.query;
 
-  if (!start || !end) {
-    console.error("Faltan parámetros 'start' y/o 'end'");
-    return res.status(400).json({ error: "Parámetros 'start' y 'end' son requeridos" });
+  if (!origin || !destination) {
+    return res.status(400).json({ error: "Parámetros 'origin' y 'destination' son requeridos" });
   }
 
-  const url = `${GOOGLE_API_URL}?origin=${start}&destination=${end}&key=${GOOGLE_API_KEY}`;
+  const url = `${GOOGLE_API_URL}?origin=${origin}&destination=${destination}&key=${GOOGLE_API_KEY}`;
 
   try {
     const response = await fetch(url);
