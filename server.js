@@ -24,7 +24,7 @@ app.get("/directions", async (req, res) => {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      const errorText = await response.text(); // Obtiene el detalle del error
+      const errorText = await response.text();
       console.error(`Error de Google Directions API: ${response.status} - ${errorText}`);
       throw new Error(`Error de Google Directions API: ${response.status}`);
     }
